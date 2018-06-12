@@ -1,8 +1,23 @@
 {
-  "name": "tymly-alerts-plugin",
+  "name": "@wmfs/tymly-alerts-plugin",
+  "version": "0.0.0-semantically-released",
   "description": "Adds some alerting options to the Tymly framework",
-  "version": "0.0.10",
-  "author": "Tim Needham",
+  "author": "West Midlands Fire Service",
+  "homepage": "https://github.com/wmfs/tymly-alerts-plugin#readme",
+  "keywords": [
+    "tymly",
+    "low code",
+    "workflow",
+    "alerts"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wmfs/tymly-alerts-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wmfs/tymly-alerts-plugin/issues"
+  },
   "main": "./lib/index.js",
   "dependencies": {
     "boom": "7.2.0",
@@ -11,19 +26,26 @@
   },
   "devDependencies": {
     "chai": "4.1.2",
+    "codecov": "3.0.2",
+    "cz-conventional-changelog": "2.1.0",
     "mocha": "5.2.0",
+    "nyc": "12.0.2",
+    "semantic-release": "^15.5.2",
     "standard": "11.0.1",
-    "tymly": "^0.0.17"
+    "@wmfs/tymly": "1.0.0"
   },
   "scripts": {
-    "lint": "standard"
+    "lint": "standard",
+    "test": "nyc mocha && standard",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "semantic-release": "semantic-release"
   },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wmfs/tymly"
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
-  "bugs": {
-    "url": "https://github.com/wmfs/tymly/issues"
+  "publishConfig": {
+    "access": "public"
   }
 }
